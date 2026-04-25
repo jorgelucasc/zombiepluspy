@@ -1,0 +1,16 @@
+{
+  "name": "py",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.5.2",
+    "prettier": "^3.8.1"
+    },
+  "scripts": {},
+  "dependencies": {
+    "pg": "^8.20.0"
+  }
+}

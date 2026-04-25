@@ -1,0 +1,42 @@
+{
+  "create":{
+    "title": "Night of the Living Dead",
+    "overview": "Clássico de George A. Romero: estranhos se abrigam em uma casa enquanto mortos-vivos cercam o local, redefinindo o cinema de zumbis.",
+    "release_year": 1988,
+    "company": "Lionsgate Films",
+    "featured": true,
+    "cover": "https://example.com/covers/night-of-the-living-dead.jpg"
+  },
+  "Dawn of the Dead":{
+    "title": "Dawn of the Dead",
+    "overview": "Continuação icônica de Romero que mistura horror e crítica social, centrada em sobreviventes isolados em um grande shopping.",
+    "release_year": 1998,
+    "company": "United Film Distribution Company",
+    "featured": true,
+    "cover": "https://example.com/covers/dawn-of-the-dead.jpg"
+  },
+  "28 Days Later":{
+    "title": "28 Days Later",
+    "overview": "Direção de Danny Boyle: um vírus altamente contagioso transforma pessoas em criaturas violentas e um homem acorda em uma Londres pós-apocalíptica.",
+    "release_year": 2002,
+    "company": "Fox Searchlight Pictures",
+    "featured": true,
+    "cover": "https://example.com/covers/28-days-later.jpg"
+  },
+  "Shaun of the Dead":{
+    "title": "Shaun of the Dead",
+    "overview": "Comédia de zumbis de Edgar Wright que mistura humor britânico e referências ao gênero, seguindo um anti-herói atrapalhado tentando salvar amigos e família.",
+    "release_year": 2004,
+    "company": "Netflix",
+    "featured": false,
+    "cover": "https://example.com/covers/shaun-of-the-dead.jpg"
+  },
+  "Train to Busan":{
+    "title": "Train to Busan",
+    "overview": "Thriller sul-coreano tenso: passageiros de um trem lutam pela sobrevivência quando um surto zumbi transforma o país em caos.",
+    "release_year": 2016,
+    "company": "Paramount Pictures",
+    "featured": false,
+    "cover": "https://example.com/covers/train-to-busan.jpg"
+  }
+}

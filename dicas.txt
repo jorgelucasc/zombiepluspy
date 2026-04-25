@@ -1,0 +1,17 @@
+--esse codigo buscar pelo href com texto Entrar e faz o click
+
+await this.page.locator('//button[text()="Entrar"]').click()
+
+--clicar em botão
+
+buscando tag html com o texto
+    await this.page.getByRole('button', {name: "Cadastrar"}).click();
+
+  aqui é um exemplo com href
+ await page.click('//button[text()="Aperte o play... se tiver coragem"]')
+  await page.locator('#name').fill('Jorge Lucas');
+  exemplo com propriedade
+  await page.locator('input[name="name"]').fill('Jorge Lucas');
+  await page.getByText('seus dados conosco').click();
+  const content = await page.content()
+  console.log(content);
