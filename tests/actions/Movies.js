@@ -6,34 +6,34 @@ class Movies {
   }
 
   async goForm() {
-    await this.page.locator('a[href$="register"]').click();
+    await this.page.locator('a[href$="register"]').click()
   }
 
   async submit(){
-    await this.page.getByRole('button', {name: "Cadastrar"}).click();
+    await this.page.getByRole('button', {name: "Cadastrar"}).click()
   }
 
   async create(movie) {
     await this.goForm()
 
-    await this.page.getByLabel('Titulo do filme').fill(movie.title); //titulo do filme
-    await this.page.getByLabel('Sinopse').fill(movie.overview); // sinopse do filme
+    await this.page.getByLabel('Titulo do filme').fill(movie.title) //titulo do filme
+    await this.page.getByLabel('Sinopse').fill(movie.overview) // sinopse do filme
 
     //seleciona a empresa do filme
     await this.page
-      .locator("#select_company_id .react-select__indicator").click();
+      .locator("#select_company_id .react-select__indicator").click()
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: movie.company }).click();
+      .filter({ hasText: movie.company }).click()
 
     //seleciona o ano do filme
     await this.page
-      .locator("#select_year .react-select__indicator").click();
+      .locator("#select_year .react-select__indicator").click()
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: movie.release_year }).click();
+      .filter({ hasText: movie.release_year }).click()
 
     await this.submit()
   }

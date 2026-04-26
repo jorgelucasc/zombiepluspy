@@ -1,9 +1,14 @@
 const { expect } = require("@playwright/test");
 
-
 class Login {
   constructor(page) {
     this.page = page;
+  }
+
+  async do(email, password) {
+    await this.visit()
+    await this.submit(email, password)
+    await this.loggedIn()
   }
 
   async visit() {
@@ -20,8 +25,8 @@ class Login {
     await this.page.getByText("Entrar").click()
   }
 
-  async alertHaveText(text){
-    const alert = this.page.locator('span[class$=alert]')
+  async alertHaveText(text) {
+    const alert = this.page.locator("span[class$=alert]")
     await expect(alert).toHaveText(text)
   }
 
@@ -29,7 +34,6 @@ class Login {
     await this.page.waitForLoadState("networkidle");
     await expect(this.page).toHaveURL(/.*admin/);
   }
-  
 }
 
 export { Login }
