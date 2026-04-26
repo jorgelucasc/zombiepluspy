@@ -10,11 +10,19 @@ class MoviesPage {
     await expect(this.page).toHaveURL(/.*admin/);
   }
 
-  async create(title, overview, company, release_year) {
+  async goForm() {
     await this.page.locator('a[href$="register"]').click();
+  }
 
-    await this.page.locator("input[name=title]").fill(title); //titulo do filme
-    await this.page.getByLabel("Sinopse").fill(overview); // sinopse do filme
+  async submit(){
+    await this.page.getByRole('button', {name: "Cadastrar"}).click();
+  }
+
+  async create(movie) {
+    await this.goForm()
+
+    await this.page.getByLabel('Titulo do filme').fill(movie.title); //titulo do filme
+    await this.page.getByLabel('Sinopse').fill(movie.overview); // sinopse do filme
 
     //seleciona a empresa do filme
     await this.page
@@ -22,7 +30,7 @@ class MoviesPage {
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: company }).click();
+      .filter({ hasText: movie.company }).click();
 
     //seleciona o ano do filme
     await this.page
@@ -30,10 +38,14 @@ class MoviesPage {
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: release_year }).click();
+      .filter({ hasText: movie.release_year }).click();
 
-    await this.page.getByRole('button', {name: "Cadastrar"}).click();
+    await this.submit()
   }
+
+  async alertHaveText(target){
+    await expect(this.page.locator('.alert')).toHaveText(target)
+  } 
 }
 
 export { MoviesPage}
