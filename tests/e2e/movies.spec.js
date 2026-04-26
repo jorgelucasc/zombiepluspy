@@ -11,7 +11,7 @@ test("deve poder cadastrar um novo filme", async ({ page }) => {
 
   await page.login.visit();
   await page.login.submit("admin@zombieplus.com", "pwd123");
-  await page.movies.loggedIn();
+  await page.login.loggedIn();
 
   await page.movies.create(movie.title, movie.overview, movie.company, movie.release_year);
 
@@ -22,7 +22,7 @@ test ('não deve cadastrar quando os campos obrigatorios não sao preenchidos', 
 {
   await page.login.visit();
   await page.login.submit("admin@zombieplus.com", "pwd123");
-  await page.movies.loggedIn();
+  await page.login.loggedIn();
 
   await page.movies.goForm()
 

@@ -15,3 +15,5 @@ buscando tag html com o texto
   await page.getByText('seus dados conosco').click();
   const content = await page.content()
   console.log(content);
+
+  page objects, ações e elementos por PÁGINA

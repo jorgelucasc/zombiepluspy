@@ -1,13 +1,8 @@
 const { expect } = require("@playwright/test");
 
-class MoviesPage {
+class Movies {
   constructor(page) {
     this.page = page;
-  }
-
-  async loggedIn() {
-    await this.page.waitForLoadState("networkidle");
-    await expect(this.page).toHaveURL(/.*admin/);
   }
 
   async goForm() {
@@ -48,4 +43,4 @@ class MoviesPage {
   } 
 }
 
-export { MoviesPage}
+export { Movies}

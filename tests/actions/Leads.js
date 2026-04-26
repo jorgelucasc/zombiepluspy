@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test' 
 
-class LandingPage {
+class Leads {
 
   constructor(page){
     this.page = page
@@ -33,4 +33,4 @@ class LandingPage {
   }
 }
 
-export { LandingPage }
+export { Leads }
