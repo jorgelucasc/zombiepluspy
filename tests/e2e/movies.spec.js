@@ -15,9 +15,16 @@ test("deve poder cadastrar um novo filme", async ({ page }) => {
   await page.toast.containText("UhullCadastro realizado com sucesso!");
 });
 
-test("não deve cadastrar quando os campos obrigatorios não sao preenchidos", async ({
-  page,
-}) => {
+test("não deve poder cadastrar um novo filme com título duplicado", async ({ page }) => {
+  const movie = data.create;
+
+  await page.login.do("admin@zombieplus.com", "pwd123");
+
+  await page.movies.create(movie);
+  await page.toast.containText("Oops!Este conteúdo já encontra-se cadastrado no catálogo");
+});
+
+test("não deve cadastrar quando os campos obrigatorios não sao preenchidos", async ({page}) => {
   await page.login.do("admin@zombieplus.com", "pwd123");
 
   await page.movies.goForm();

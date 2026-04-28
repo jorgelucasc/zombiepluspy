@@ -33,6 +33,9 @@ class Login {
   async loggedIn() {
     await this.page.waitForLoadState("networkidle");
     await expect(this.page).toHaveURL(/.*admin/);
+
+    /*const loggedUser = this.page.locator('.logged-user');
+    await expect(loggedUser).toHaveText('Olá, Admin')*/
   }
 }
 
