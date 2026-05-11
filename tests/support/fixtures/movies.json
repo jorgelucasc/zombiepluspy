@@ -7,13 +7,13 @@
     "featured": true,
     "cover": "/covers/movies/dead-snow.jpg"
   },
-  "Dawn of the Dead":{
+  "duplicate":{
     "title": "Dawn of the Dead",
     "overview": "Continuação icônica de Romero que mistura horror e crítica social, centrada em sobreviventes isolados em um grande shopping.",
     "release_year": 1998,
-    "company": "United Film Distribution Company",
+    "company": "Columbia Pictures",
     "featured": true,
-    "cover": "https://example.com/covers/dawn-of-the-dead.jpg"
+    "cover": "/covers/movies/mortos-vivos.jpg"
   },
   "28 Days Later":{
     "title": "28 Days Later",

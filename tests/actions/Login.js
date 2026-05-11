@@ -5,10 +5,10 @@ class Login {
     this.page = page;
   }
 
-  async do(email, password) {
+  async do(email, password, username) {
     await this.visit()
     await this.submit(email, password)
-    await this.loggedIn()
+    await this.loggedIn(username)
   }
 
   async visit() {
@@ -30,7 +30,7 @@ class Login {
     await expect(alert).toHaveText(text)
   }
 
-  async loggedIn() {
+  async loggedIn(username) {
     await this.page.waitForLoadState("networkidle");
     await expect(this.page).toHaveURL(/.*admin/);
 
