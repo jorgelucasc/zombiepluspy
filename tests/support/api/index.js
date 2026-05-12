@@ -1,4 +1,4 @@
-const { expect } = require("@playwright/test");
+const { expect } = require("@playwright/test")
 
 export class Api {
   constructor(request) {
@@ -17,12 +17,32 @@ export class Api {
     expect(response.ok()).toBeTruthy();
     //Pego o response e converto para json, depois pego o token e guardo em uma variável para usar no próximo request
     const body = JSON.parse(await response.text());
-    this.token = 'Bearer ' + body.token;
+    this.token = "Bearer " + body.token;
+  }
 
+  async getCompanyIdByName(companyName) {
+    await this.setToken()
+
+    const response = await this.request.get(
+      "http://localhost:3333/companies/",
+      {
+        headers: {
+          Authorization: this.token,
+        },
+        params: {
+          name: companyName,
+        },
+      })
+
+    expect(response.ok()).toBeTruthy()
+    
+    const body = JSON.parse(await response.text())
+
+    return body.data[0].id
   }
 
   async postMovie(movie) {
-
+    const companyId = await this.getCompanyIdByName(movie.company)
     await this.setToken()
 
     const response = await this.request.post("http://localhost:3333/movies", {
@@ -34,12 +54,12 @@ export class Api {
       multipart: {
         title: movie.title,
         overview: movie.overview,
-        company_id: "259aec37-a52f-4058-9c4d-05bb1dad66c9",
+        company_id: companyId,
         release_year: movie.release_year,
         featured: movie.featured,
-      }
-    })
+      },
+    });
 
-    expect(response.ok()).toBeTruthy()
+    expect(response.ok()).toBeTruthy();
   }
 }
