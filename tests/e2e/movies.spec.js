@@ -19,7 +19,6 @@ test("deve poder cadastrar um novo filme", async ({ page }) => {
 
 test("não deve poder cadastrar um novo filme com título duplicado", async ({ page, request }) => {
   const movie = data.duplicate;
-  
   await request.api.postMovie(movie)
 
   await page.login.do("admin@zombieplus.com", "pwd123");
