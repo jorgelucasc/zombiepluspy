@@ -12,7 +12,7 @@ test('deve cadastrar novo lead na fila de espera', async ({ page }) => {
   await page.leads.submitLeadForm(leadName,leadEmail)
   const message =
     "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!";
-  await page.toast.containText(message)
+  await page.dialog.containText(message)
 
 
   //aqui é um exemplo com href
@@ -44,8 +44,8 @@ test('deve validar um email já existente no sistema e não cadastrar', async ({
   await page.leads.submitLeadForm(leadName,leadEmail)
   
   const message =
-    "O endereço de e-mail fornecido já está registrado em nossa fila de espera.";
-  await page.toast.containText(message)
+    "Verificamos que o endereço de e-mail fornecido já consta em nossa lista de espera. Isso significa que você está um passo mais perto de aproveitar nossos serviços.";
+  await page.dialog.containText(message);
 });
 
 test('não deve cadastrar com email inválido', async ({ page }) => {

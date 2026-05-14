@@ -12,7 +12,7 @@ test("não deve logar com senha incorreta", async ({ page }) => {
 
   const message =
     "Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.";
-  await page.toast.containText(message);
+  await page.dialog.containText(message);
 });
 
 test("não deve logar com email não preenchido", async ({ page }) => {

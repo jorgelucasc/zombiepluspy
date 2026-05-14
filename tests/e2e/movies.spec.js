@@ -14,7 +14,7 @@ test("deve poder cadastrar um novo filme", async ({ page }) => {
   await page.login.do("admin@zombieplus.com", "pwd123");
 
   await page.movies.create(movie);
-  await page.toast.containText("UhullCadastro realizado com sucesso!");
+  await page.dialog.containText("UhullCadastro realizado com sucesso!");
 });
 
 test("não deve poder cadastrar um novo filme com título duplicado", async ({ page, request }) => {
@@ -23,7 +23,7 @@ test("não deve poder cadastrar um novo filme com título duplicado", async ({ p
 
   await page.login.do("admin@zombieplus.com", "pwd123");
   await page.movies.create(movie);
-  await page.toast.containText("Oops!Este conteúdo já encontra-se cadastrado no catálogo");
+  await page.dialog.containText("Oops!Este conteúdo já encontra-se cadastrado no catálogo");
 
 });
 
@@ -34,9 +34,9 @@ test("não deve cadastrar quando os campos obrigatorios não sao preenchidos", a
 
   await page.movies.submit();
   await page.movies.alertHaveText([
-    "Por favor, informe o título.",
-    "Por favor, informe a sinopse.",
-    "Por favor, informe a empresa distribuidora.",
-    "Por favor, informe o ano de lançamento.",
+    "Campo Obrigatório",
+    "Campo Obrigatório",
+    "Campo Obrigatório",
+    "Campo Obrigatório",
   ]);
 });

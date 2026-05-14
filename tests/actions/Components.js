@@ -1,17 +1,17 @@
 import {expect} from '@playwright/test'
 
-class Toast {
+class Dialog {
 
     constructor(page) {
         this.page = page
     }
 
     async containText(message) {
-        const toast = this.page.locator(".toast")
+        const dialog = this.page.locator('[role="dialog"]')
 
-        await expect(toast).toContainText(message)
-        await expect(toast).not.toBeVisible({ timeout: 6000 })
+        await expect(dialog).toContainText(message)
+        await expect(dialog).not.toBeVisible({ timeout: 6000 })
     }
 }
 
-export { Toast }
+export { Dialog }
