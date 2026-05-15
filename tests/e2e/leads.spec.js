@@ -11,8 +11,8 @@ test('deve cadastrar novo lead na fila de espera', async ({ page }) => {
   await page.leads.openLeadModal()
   await page.leads.submitLeadForm(leadName,leadEmail)
   const message =
-    "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!";
-  await page.dialog.containText(message)
+    "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato.";
+  await page.popup.haveText(message)
 
 
   //aqui é um exemplo com href
@@ -30,7 +30,7 @@ test('deve validar um email já existente no sistema e não cadastrar', async ({
   const leadName = faker.person.fullName()
   const leadEmail = faker.internet.email()
 
-  const newLead =await request.post('http://localhost:3333/leads',{
+  const newLead = await request.post('http://localhost:3333/leads',{
     data: {
       name: leadName,
       email: leadEmail
@@ -45,7 +45,7 @@ test('deve validar um email já existente no sistema e não cadastrar', async ({
   
   const message =
     "Verificamos que o endereço de e-mail fornecido já consta em nossa lista de espera. Isso significa que você está um passo mais perto de aproveitar nossos serviços.";
-  await page.dialog.containText(message);
+  await page.popup.haveText(message);
 });
 
 test('não deve cadastrar com email inválido', async ({ page }) => {

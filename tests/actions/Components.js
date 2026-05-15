@@ -1,17 +1,14 @@
-import {expect} from '@playwright/test'
+const {expect} = require('@playwright/test')
 
-class Dialog {
+export class Popup {
 
     constructor(page) {
         this.page = page
     }
 
-    async containText(message) {
-        const dialog = this.page.locator('[role="dialog"]')
+    async haveText(message) {
+        const dialog = this.page.locator('.swal2-html-container')
 
-        await expect(dialog).toContainText(message)
-        await expect(dialog).not.toBeVisible({ timeout: 6000 })
+        await expect(dialog).toHaveText(message)
     }
 }
-
-export { Dialog }

@@ -1,7 +1,7 @@
 const { test: base, expect } = require("@playwright/test")
 
 const { Login } = require("../actions/Login")
-const { Dialog } = require("../actions/Components")
+const { Popup } = require("../actions/Components")
 const { Movies } = require("../actions/Movies")
 const { Leads } = require("../actions/Leads")
 
@@ -12,7 +12,7 @@ const test = base.extend({
     const context = page
 
     context["leads"] = new Leads(page)
-    context["dialog"] = new Dialog(page)
+    context["popup"] = new Popup(page)
     context["movies"] = new Movies(page)
     context["login"] = new Login(page)
 
