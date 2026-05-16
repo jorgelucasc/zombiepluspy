@@ -1,23 +1,24 @@
 const { test, expect } = require("../support");
 
-const data = require("../support/fixtures/movies.json");
+const data = require("../support/fixtures/tvseries.json");
 
 const { executeSQL } = require("../support/database");
 
 test.beforeAll(async() => {
-  await executeSQL('DELETE FROM movies');
+  await executeSQL('DELETE FROM tvshows');
 })
 
-test("deve poder cadastrar um novo filme", async ({ page }) => {
-  const movie = data.create;
+test("deve poder cadastrar uma nova serie", async ({ page }) => {
+  const tvseries = data.create;
 
   await page.login.do("admin@zombieplus.com", "pwd123");
+  await page.click()
 
-  await page.movies.create(movie);
-  await page.popup.haveText(`O filme '${movie.title}' foi adicionado ao catálogo.`);
+  await page.tvseries.create(tvseries);
+  await page.popup.haveText(`O filme '${tvseries.title}' foi adicionado ao catálogo.`);
 });
 
-test('deve poder remover um filme', async ({ page, request }) => {
+/*test('deve poder remover um filme', async ({ page, request }) => {
   const movie = data.to_remove
   
   await request.api.postMovie(movie)
@@ -61,4 +62,4 @@ test("deve poder pesquisar pelo termo zumbi", async ({ page, request }) => {
   await page.login.do('admin@zombieplus.com', 'pwd123', 'Admin')
   await page.movies.search(movies.input)
   await page.movies.tableHave(movies.outputs)
-})
+})/*

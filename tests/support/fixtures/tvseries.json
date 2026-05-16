@@ -1,0 +1,56 @@
+{
+  "create": {
+    "title": "The Walking Dead",
+    "overview": "Série pós-apocalíptica que acompanha um grupo de sobreviventes tentando enfrentar hordas de zumbis enquanto lidam com conflitos humanos extremos.",
+    "release_year": 2010,
+    "seasons": 11,
+    "company": "AMC Studios",
+    "featured": true,
+    "cover": "/covers/tvshows/the-walking-dead.jpg"
+  },
+  "duplicate": {
+    "title": "All of Us Are Dead",
+    "overview": "Estudantes ficam presos em uma escola durante um surto zumbi devastador e precisam lutar para sobreviver enquanto aguardam resgate.",
+    "release_year": 2022,
+    "seasons": 1,
+    "company": "Netflix",
+    "featured": true,
+    "cover": "/covers/tvshows/all-of-us-are-dead.jpg"
+  },
+  "to_remove": {
+    "title": "Kingdom",
+    "overview": "Thriller sul-coreano ambientado na era Joseon onde uma misteriosa praga transforma pessoas em mortos-vivos sedentos por carne humana.",
+    "release_year": 2019,
+    "seasons": 2,
+    "company": "Netflix",
+    "featured": true,
+    "cover": "/covers/tvshows/kingdom.jpg"
+  },
+  "search": {
+    "input": "zumbi",
+    "outputs": [
+      "Black Summer",
+      "Z Nation"
+    ],
+    "data": [
+      {
+        "title": "Black Summer",
+        "overview": "Drama intenso de sobrevivência que mostra os primeiros dias de um apocalipse zumbi através da jornada desesperada de uma mãe em busca da filha.",
+        "release_year": 2019,
+        "seasons": 2,
+        "company": "Netflix",
+        "featured": false,
+        "cover": "https://example.com/covers/black-summer.jpg"
+      },
+      {
+        "title": "Z Nation",
+        "overview": "Mistura de ação, horror e humor em uma missão para transportar o único sobrevivente imune ao vírus zumbi até um laboratório.",
+        "release_year": 2014,
+        "seasons": 5,
+        "company": "Syfy",
+        "featured": false,
+        "cover": "https://example.com/covers/z-nation.jpg"
+      }
+    ]
+  }
+}

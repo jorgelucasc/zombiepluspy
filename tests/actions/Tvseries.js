@@ -1,6 +1,6 @@
 const { expect } = require("@playwright/test");
 
-class Movies {
+class Tvseries {
   constructor(page) {
     this.page = page;
   }
@@ -13,11 +13,11 @@ class Movies {
     await this.page.getByRole('button', {name: "Cadastrar"}).click()
   }
 
-  async create(movie) {
+  async create(tvseries) {
     await this.goForm()
 
-    await this.page.getByLabel('Titulo do filme').fill(movie.title) //titulo do filme
-    await this.page.getByLabel('Sinopse').fill(movie.overview) // sinopse do filme
+    await this.page.getByLabel('Titulo do filme').fill(tvseries.title) //titulo do filme
+    await this.page.getByLabel('Sinopse').fill(tvseries.overview) // sinopse do filme
 
     //seleciona a empresa do filme
     await this.page
@@ -25,7 +25,7 @@ class Movies {
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: movie.company }).click()
+      .filter({ hasText: tvseries.company }).click()
 
     //seleciona o ano do filme
     await this.page
@@ -33,11 +33,11 @@ class Movies {
 
     await this.page
       .locator('.react-select__option')
-      .filter({ hasText: movie.release_year }).click()
+      .filter({ hasText: tvseries.release_year }).click()
 
-    await this.page.locator('input[name=cover]').setInputFiles('tests/support/fixtures' + movie.cover)
+    await this.page.locator('input[name=cover]').setInputFiles('tests/support/fixtures' + tvseries.cover)
 
-    if(movie.featured) {
+    if(tvseries.featured) {
       await this.page.locator('.featured .react-switch').click()
     }
     
@@ -64,4 +64,4 @@ class Movies {
   }
 }
 
-export { Movies}
+export { Tvseries }
